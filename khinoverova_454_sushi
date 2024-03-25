@@ -1,0 +1,92 @@
+<html>
+	<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://mitricho.github.io/news.js"></script> 
+		<style>
+			body{
+				font-family:'Montserrat';
+			}
+			#head{
+        background: pink;
+				position:fixed;
+				top:0;
+				width:100%;
+				height:6rem;				
+			}
+			#content{
+				position:fixed;
+				width:100%;
+				top:6rem;
+				bottom:15rem;
+				overflow:auto;
+			}
+			#result{
+				position:fixed;
+				bottom:0;
+				width:100%;
+				height:15rem;
+				overflow:auto;
+			}			
+			#head h1{
+				color:black;
+        text-align:center;
+			}
+			.item{
+				width:20%;
+				height:35rem;
+				margin-right:2rem;
+				display: inline-block;
+				vertical-align: top;				
+				padding: 1rem;
+				background: #FFFFFF;
+				border-radius: 2rem;
+				background:#FF9999
+			}
+			.item img{
+				width:100%;
+				max-height: 12rem;
+				object-fit: cover;
+	
+			}
+			button{
+			background:#99FF00;
+			padding: 1rem;
+			border:0;
+			border-radius:1rem;
+			}
+		</style>
+		
+	</head>
+<body>
+	<div id="head">	
+		<h1>Good Asian Food Store Fugu</h1>	
+	</div>
+	
+	<div id="content"></div>
+	
+	<div id="result"></div>
+</body>
+
+		<script>		
+		for (var i=0;i<news.length;i++)
+		{
+		add("content",i);
+		}
+		function add(id, i)
+		{		
+			console.log (news[i].title)
+			var m='';
+			m+="<div class='item'>"
+			m+="<h1>" + news[i].title+"</h1>";
+			m+="<img src=" + news[i].image+">";
+			m+="<p>" + news[i].text+"</p>";
+			m+="<button onClick='add(\"result\"," + i + ")'>buy</button>";
+			m+="</div>"
+			document.getElementById('content').innerHTML+=m;		
+		}
+		
+		</script>
+
+</html>
